@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
+var bodyParser = require("body-parser");
 const indexRouter = require('./routes/index');
 
 app.set('view engine', 'ejs');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use('/', indexRouter);
 
